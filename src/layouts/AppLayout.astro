@@ -1,0 +1,19 @@
+---
+import NavigationBar from "../components/navigation/NavigationBar.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline src="./node_modules/preline/dist/index.js"></script>
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </head>
+  <body>
+    <NavigationBar />
+    <slot />
+  </body>
+</html>
