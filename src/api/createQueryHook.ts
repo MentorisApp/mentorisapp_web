@@ -3,10 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import type { UseQueryOptions } from "@tanstack/react-query";
 import type { AxiosRequestConfig } from "axios";
 
-type QueryOptions<TResponse> = Omit<
-  UseQueryOptions<TResponse, Error>,
-  "queryFn" | "queryKey"
->;
+type QueryOptions<TResponse> = Omit<UseQueryOptions<TResponse, Error>, "queryFn" | "queryKey">;
 
 type CreateQueryHookParams<TRequest, TResponse> = {
   method: "GET" | "POST";
@@ -33,11 +30,7 @@ const createQueryHook = <TRequest, TResponse>({
           return GET<TResponse>(endpointUrl, axiosRequestConfig);
 
         case "POST":
-          return POSTQ<TRequest, TResponse>(
-            endpointUrl,
-            payload,
-            axiosRequestConfig,
-          );
+          return POSTQ<TRequest, TResponse>(endpointUrl, payload, axiosRequestConfig);
 
         default:
           throw new Error(`Unsupported HTTP method: ${method}`);

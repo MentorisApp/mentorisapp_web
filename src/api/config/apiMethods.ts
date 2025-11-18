@@ -1,5 +1,5 @@
-import { type AxiosRequestConfig } from 'axios';
-import { apiClient } from './apiClient';
+import { type AxiosRequestConfig } from "axios";
+import { apiClient } from "./apiClient";
 
 // GET method
 export const GET = <TResponse>(route: string, config?: AxiosRequestConfig<TResponse>) => {
@@ -35,10 +35,7 @@ export const POST = <TRequest, TResponse>(
 };
 
 // PUT method
-export const PUT = <TRequest, TResponse>(
-  route: string,
-  config?: AxiosRequestConfig<TResponse>
-) => {
+export const PUT = <TRequest, TResponse>(route: string, config?: AxiosRequestConfig<TResponse>) => {
   return async (payload: TRequest) => {
     const { data } = await apiClient.put<TResponse>(route, payload, config);
     return data;

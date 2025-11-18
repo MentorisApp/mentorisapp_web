@@ -1,11 +1,24 @@
 {
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
+  // Prettier as the main formatter
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "prettier.documentSelectors": ["**/*.astro"],
+
+  // Make Prettier work from local node_modules
+  "prettier.prettierPath": "node_modules/prettier",
+
+  // Astro formatting using Prettier
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+
+  // Tailwind syntax highlighting
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+
+  // ESLint behavior
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "astro"],
+  "eslint.codeActionsOnSave.mode": "problems",
+  "eslint.codeActionsOnSave.rules": null,
+  "editor.formatOnSaveMode": "modifications"
 }
