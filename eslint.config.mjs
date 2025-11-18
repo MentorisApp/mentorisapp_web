@@ -9,7 +9,11 @@ const tsParser = tseslint.parser;
 const astroParser = astro.parser;
 
 export default defineConfig([
-  // Global config
+  js.configs.recommended,
+  tseslint.configs.recommended,
+  astro.configs.recommended,
+  astro.configs["jsx-a11y-recommended"],
+
   {
     languageOptions: {
       globals: {
@@ -18,12 +22,6 @@ export default defineConfig([
       },
     },
   },
-
-  // Base JS + TS configs
-  js.configs.recommended,
-  tseslint.configs.recommended,
-
-  // Prettier plugin
   {
     plugins: {
       prettier,
@@ -32,22 +30,24 @@ export default defineConfig([
       "prettier/prettier": "off",
     },
   },
-
-  // TypeScript-specific rules
   {
     files: ["**/*.ts", "**/*.tsx"],
     plugins: {
       "@typescript-eslint": tseslint.plugin,
     },
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        project: "./tsconfig.json",
+        sourceType: "module",
+        ecmaVersion: "latest",
+      },
+    },
     rules: {
-      "no-unused-vars": "off", // disable built-in
-      "@typescript-eslint/no-unused-vars": ["warn"], // use TS rule
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": ["warn"],
     },
   },
-
-  // Astro setup
-  astro.configs.recommended,
-  astro.configs["jsx-a11y-recommended"],
   {
     files: ["**/*.astro"],
     languageOptions: {
@@ -57,16 +57,15 @@ export default defineConfig([
         extraFileExtensions: [".astro"],
         sourceType: "module",
         ecmaVersion: "latest",
-        project: "./tsconfig.json",
       },
     },
     rules: {
+      "no-unused-vars": "off",
       "no-undef": "off",
+      "@typescript-eslint/no-unused-vars": ["warn"],
       "@typescript-eslint/no-explicit-any": "off",
     },
   },
-
-  // Ignore patterns
   {
     ignores: ["dist/**", "**/*.d.ts", ".github/"],
   },

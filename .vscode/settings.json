@@ -20,5 +20,6 @@
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "astro"],
   "eslint.codeActionsOnSave.mode": "problems",
   "eslint.codeActionsOnSave.rules": null,
-  "editor.formatOnSaveMode": "modifications"
+  "editor.formatOnSaveMode": "file",
+  "astro.updateImportsOnFileMove.enabled": true
 }
