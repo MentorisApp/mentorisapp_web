@@ -20,7 +20,7 @@ const createQueryHook = <TRequest, TResponse>({
   axiosRequestConfig,
   queryOptions: baseQueryOptions,
 }: CreateQueryHookParams<TRequest, TResponse>) => {
-  return (payload: TRequest, overrideQueryOptions: QueryOptions<TResponse>) => {
+  return (payload: TRequest, overrideQueryOptions?: QueryOptions<TResponse>) => {
     const cacheKey = queryKey ? queryKey(payload) : [];
     const queryFn = (() => {
       const endpointUrl = typeof url === "function" ? url(payload) : url;

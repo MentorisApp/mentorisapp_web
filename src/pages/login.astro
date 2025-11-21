@@ -1,0 +1,10 @@
+---
+import { LoginForm } from "@/components/form/forms/LoginForm";
+import AppLayout from "@/layouts/AppLayout.astro";
+---
+
+<AppLayout>
+  <div class="grid h-lvh w-lvw place-items-center">
+    <LoginForm client:load />
+  </div>
+</AppLayout>
