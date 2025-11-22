@@ -1,13 +1,11 @@
-import { Icon } from "@/components/icons/Icon";
-
 interface LabelProps {
   id: string;
-  required?: boolean;
+  optional?: boolean;
   text?: string;
 }
 
 const Label = (props: LabelProps) => {
-  const { id, required = false, text } = props;
+  const { id, optional = false, text } = props;
 
   return (
     <div className="flex flex-wrap items-center justify-between gap-2">
@@ -16,10 +14,10 @@ const Label = (props: LabelProps) => {
           {text}
         </label>
       )}
-      {required ? (
-        <Icon name="ASTERISK" className="fill-red-600" size={10} />
-      ) : (
-        <span className="mb-2 block text-xs text-gray-500 dark:text-neutral-500">Optional</span>
+      {optional && (
+        <span className="mb-2 block text-xs text-gray-500 italic dark:text-neutral-500">
+          Optional
+        </span>
       )}
     </div>
   );

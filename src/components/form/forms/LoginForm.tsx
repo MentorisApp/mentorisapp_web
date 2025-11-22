@@ -25,17 +25,10 @@ const LoginForm = () => {
     <IslandWrapper>
       <div className="w-1/4 max-w-[400px] min-w-[200px]">
         <form onSubmit={onSubmit}>
-          <InputText
-            label="Email"
-            name="email"
-            required
-            control={form.control}
-            placeholder="Email"
-          />
+          <InputText label="Email" name="email" control={form.control} placeholder="Email" />
           <InputText
             label="Password"
             name="password"
-            required
             control={form.control}
             placeholder="Password"
           />
