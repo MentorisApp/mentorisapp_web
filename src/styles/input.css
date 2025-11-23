@@ -1,0 +1,20 @@
+@layer utilities {
+  .input-base {
+    @apply block w-full rounded-xl border-2 border-transparent bg-gray-100 text-sm placeholder-neutral-400 focus:ring-0 focus:outline-none disabled:pointer-events-none disabled:opacity-50;
+  }
+  .input-focus {
+    @apply focus:border-blue-500;
+  }
+  .input-error {
+    @apply border-orange-600 bg-red-200/50;
+  }
+  .input-sm {
+    @apply px-2 py-1.5 text-sm;
+  }
+  .input-md {
+    @apply px-3 py-2.5 text-sm;
+  }
+  .input-lg {
+    @apply px-4 py-3.5 text-base;
+  }
+}

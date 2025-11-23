@@ -4,7 +4,10 @@ import AppLayout from "@/layouts/AppLayout.astro";
 ---
 
 <AppLayout>
-  <div class="grid h-lvh w-lvw place-items-center">
-    <LoginForm client:load />
+  <div class="flex h-lvh w-lvw">
+    <div class="flex-1">
+      <LoginForm client:load />
+    </div>
+    <div class="flex-1 bg-neutral-200"></div>
   </div>
 </AppLayout>
