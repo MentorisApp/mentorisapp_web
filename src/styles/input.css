@@ -3,7 +3,7 @@
     @apply block w-full rounded-xl border-2 border-transparent bg-gray-100 text-sm placeholder-neutral-400 focus:ring-0 focus:outline-none disabled:pointer-events-none disabled:opacity-50;
   }
   .input-focus {
-    @apply focus:border-blue-500;
+    @apply focus:border-primary;
   }
   .input-error {
     @apply border-orange-600 bg-red-200/50;

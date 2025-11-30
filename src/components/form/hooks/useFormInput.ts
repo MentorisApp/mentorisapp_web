@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 import type { BaseInputProps } from "@/components/form/types/FormInput.types";
 
 export const useFormInput = <T extends FieldValues>(props: BaseInputProps<T>) => {
-  const { name, control, className } = props;
+  const { name, control, className, size = "normal" } = props;
 
   const {
     field,
@@ -17,6 +17,9 @@ export const useFormInput = <T extends FieldValues>(props: BaseInputProps<T>) =>
   const finalClassName = twMerge(
     "input-base input-md",
     error ? "input-error" : "input-focus",
+    size === "small" && "input-sm",
+    size === "normal" && "input-md",
+    size === "large" && "input-lg",
     className
   );
 

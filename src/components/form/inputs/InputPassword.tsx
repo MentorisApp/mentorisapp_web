@@ -4,6 +4,7 @@ import type { BaseInputProps } from "@/components/form/types/FormInput.types";
 import { Eye, EyeOff } from "lucide-react";
 import { FormInputTemplate } from "../templates/FormInputTemplate";
 import { useFormInput } from "../hooks/useFormInput";
+import { twMerge } from "tailwind-merge";
 
 const InputPassword = <T extends FieldValues>(props: BaseInputProps<T>) => {
   const { optional, label, placeholder } = props;
@@ -13,6 +14,11 @@ const InputPassword = <T extends FieldValues>(props: BaseInputProps<T>) => {
   const toggleShowPassword = () => {
     setShowPassword((prev) => !prev);
   };
+
+  const buttonClassName = twMerge(
+    "focus:text-primary dark:focus:text-primary absolute inset-y-0 end-0 z-50 flex cursor-pointer items-center rounded-md px-3 text-gray-400 focus:outline-hidden dark:text-neutral-600",
+    showPassword && "text-primary"
+  );
 
   return (
     <FormInputTemplate errorMessage={error} inputId={inputId} label={label} optional={optional}>
@@ -24,15 +30,11 @@ const InputPassword = <T extends FieldValues>(props: BaseInputProps<T>) => {
         />
         <button
           type="button"
-          className="absolute inset-y-0 end-0 z-20 flex cursor-pointer items-center rounded-e-md px-3 text-gray-400 focus:text-blue-600 focus:outline-hidden dark:text-neutral-600 dark:focus:text-blue-500"
+          className={buttonClassName}
           onClick={toggleShowPassword}
           tabIndex={-1}
         >
-          {showPassword ? (
-            <Eye className="size-4 shrink-0" />
-          ) : (
-            <EyeOff className="size-4 shrink-0" />
-          )}
+          {showPassword ? <Eye className="size-4" /> : <EyeOff className="size-4" />}
         </button>
       </div>
     </FormInputTemplate>

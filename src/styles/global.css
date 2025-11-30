@@ -8,3 +8,39 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @import "./input.css";
+
+@theme inline {
+  /* -------------------------------------------------------------------------- */
+  /*                                   Primary                                  */
+  /* -------------------------------------------------------------------------- */
+  --color-primary: var(--color-teal-800);
+  --color-primary-on: var(--color-teal-100);
+
+  --color-primary-container: var(--color-lime-200);
+  --color-primary-container-on: var(--color-lime-900);
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  Secondary                                 */
+  /* -------------------------------------------------------------------------- */
+  --color-secondary: var(--color-slate-200);
+  --color-secondary-on: var(--color-slate-800);
+
+  --color-secondary-container: var(--color-slate-300);
+  --color-secondary-container-on: var(--color-slate-900);
+
+  /* --color-success-foreground: var(--color-white);
+  --color-success-surface: var(--color-green-600);
+  --color-success-muted: var(--color-green-100); */
+
+  /* --color-error-foreground: var(--color-white);
+  --color-error-muted: var(--color-red-100);
+  --color-error-surface: var(--color-red-600); */
+
+  /* --color-warning-muted: var(--color-amber-100);
+  --color-warning-surface: var(--color-amber-500);
+  --color-warning-foreground: var(--color-amber-900); */
+
+  /* --color-info: var(--color-blue-600);
+  --color-info-foreground: var(--color-white);
+  --color-info-muted: var(--color-blue-100);  */
+}
