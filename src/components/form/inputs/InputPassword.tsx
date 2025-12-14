@@ -16,7 +16,7 @@ const InputPassword = <T extends FieldValues>(props: BaseInputProps<T>) => {
   };
 
   const buttonClassName = twMerge(
-    "focus:text-primary dark:focus:text-primary absolute inset-y-0 end-0 z-50 flex cursor-pointer items-center rounded-md px-3 text-gray-400 focus:outline-hidden dark:text-neutral-600",
+    "focus:text-primary dark:focus:text-primary absolute inset-y-0 end-0 z-50 flex cursor-pointer items-center rounded-md px-3 text-gray-500 focus:outline-hidden dark:text-neutral-600",
     showPassword && "text-primary"
   );
 

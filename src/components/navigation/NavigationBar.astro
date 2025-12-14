@@ -3,7 +3,7 @@ import { Button } from "../button/Button";
 ---
 
 <header
-  class="absolute z-50 flex w-full flex-wrap bg-white py-3 text-sm sm:flex-nowrap sm:justify-start dark:bg-neutral-800"
+  class="absolute z-50 flex w-full flex-wrap py-3 text-sm sm:flex-nowrap sm:justify-start dark:bg-neutral-800"
 >
   <nav class="mx-auto flex w-full max-w-340 basis-full flex-wrap items-center justify-between px-4">
     <a
@@ -11,7 +11,7 @@ import { Button } from "../button/Button";
       href="/">Mentoris</a
     >
     <div class="flex items-center gap-x-2 sm:order-3">
-      <Button client:load severity="primary" variant="solid">Prijava</Button>
+      <Button to="/login" client:load severity="primary" variant="solid">Prijava</Button>
     </div>
   </nav>
 </header>

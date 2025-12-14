@@ -4,40 +4,67 @@ import { twMerge } from "tailwind-merge";
 type ButtonProps = {
   className?: string;
   variant?: "solid" | "ghost";
-  severity?: "primary" | "success" | "error" | "warning" | "info";
+  severity?: "primary" | "secondary" | "success" | "error" | "warning" | "info";
   size?: "small" | "medium" | "large";
+  to?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = (props: PropsWithChildren<ButtonProps>) => {
-  const { children, className, variant = "solid", severity = "primary", ...restProps } = props;
+  const { children, className, variant = "solid", severity = "primary", to, ...restProps } = props;
 
   const base =
-    "inline-flex items-center w-full hover:cursor-pointer justify-center font-medium rounded-full px-[1.8em] py-[0.8em] transition duration-200";
+    "inline-flex items-center justify-center font-medium rounded-full transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
 
-  const variants = {
+  const sizes = {
+    small: "px-4 py-2 text-sm",
+    medium: "px-6 py-3 text-base",
+    large: "px-8 py-4 text-lg",
+  };
+
+  const variantClasses = {
     primary: {
-      solid: "bg-primary text-primary-on hover:bg-primary/80",
-      ghost: "bg-transparent text-primary-surface border-transparent hover:bg-primary/80",
+      solid: "bg-primary text-white hover:bg-primary-hover active:bg-primary-active",
+      ghost: "bg-transparent text-primary border border-primary hover:bg-primary/10",
     },
-    error: {
-      solid: "bg-error-surface text-error-foreground",
-      ghost: "bg-transparent text-error-surface border-transparent hover:bg-error-muted",
-    },
-    warning: {
-      solid: "bg-warning-surface text-warning-foreground",
-      ghost: "bg-transparent text-warning-surface border-transparent hover:bg-warning-muted",
-    },
-    info: {
-      solid: "bg-info-surface text-info-foreground",
-      ghost: "bg-transparent text-info-surface border-transparent hover:bg-info-muted",
+    secondary: {
+      solid: "bg-gray-200 text-gray-900 hover:bg-gray-300 active:bg-gray-400",
+      ghost: "bg-transparent text-gray-900 border border-gray-300 hover:bg-gray-100",
     },
     success: {
-      solid: "bg-success-surface text-success-foreground",
-      ghost: "bg-transparent text-success-surface border-transparent hover:bg-success-muted",
+      solid: "bg-success text-white hover:bg-green-600 active:bg-green-700",
+      ghost: "bg-transparent text-success border border-success hover:bg-success/10",
+    },
+    error: {
+      solid: "bg-error text-white hover:bg-red-600 active:bg-red-700",
+      ghost: "bg-transparent text-error border border-error hover:bg-error/10",
+    },
+    warning: {
+      solid: "bg-warning text-white hover:bg-amber-600 active:bg-amber-700",
+      ghost: "bg-transparent text-warning border border-warning hover:bg-warning/10",
+    },
+    info: {
+      solid: "bg-info text-white hover:bg-blue-600 active:bg-blue-700",
+      ghost: "bg-transparent text-info border border-info hover:bg-info/10",
     },
   };
 
-  const merged = twMerge(base, variants[severity]?.[variant], className);
+  const merged = twMerge(
+    base,
+    sizes[props.size || "medium"],
+    variantClasses[severity]?.[variant],
+    className
+  );
+
+  // Wrap in <a> if `to` is provided, else just render <button>
+  if (to) {
+    return (
+      <a href={to}>
+        <button className={merged} {...restProps}>
+          {children}
+        </button>
+      </a>
+    );
+  }
 
   return (
     <button className={merged} {...restProps}>

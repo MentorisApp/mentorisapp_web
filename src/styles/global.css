@@ -13,34 +13,34 @@
   /* -------------------------------------------------------------------------- */
   /*                                   Primary                                  */
   /* -------------------------------------------------------------------------- */
-  --color-primary: var(--color-teal-800);
-  --color-primary-on: var(--color-teal-100);
-
-  --color-primary-container: var(--color-lime-200);
-  --color-primary-container-on: var(--color-lime-900);
+  --color-primary: var(--color-teal-700); /* main buttons, links */
+  --color-primary-hover: var(--color-teal-600); /* hover state */
+  --color-primary-active: var(--color-teal-900); /* active/pressed */
 
   /* -------------------------------------------------------------------------- */
-  /*                                  Secondary                                 */
+  /*                                  Neutrals                                  */
   /* -------------------------------------------------------------------------- */
-  --color-secondary: var(--color-slate-200);
-  --color-secondary-on: var(--color-slate-800);
+  /* General neutral */
+  --color-bg: var(--color-gray-50); /* page background */
+  --color-surface: var(--color-white); /* cards, panels */
+  --color-border: var(--color-gray-200); /* borders, dividers */
 
-  --color-secondary-container: var(--color-slate-300);
-  --color-secondary-container-on: var(--color-slate-900);
+  /* Text */
+  --color-text: var(--color-gray-900); /* primary text */
+  --color-text-muted: var(--color-gray-700); /* secondary text */
 
-  /* --color-success-foreground: var(--color-white);
-  --color-success-surface: var(--color-green-600);
-  --color-success-muted: var(--color-green-100); */
+  /* -------------------------------------------------------------------------- */
+  /*                                Semantic colors                             */
+  /* -------------------------------------------------------------------------- */
+  --color-success: var(--color-green-600);
+  --color-success-muted: var(--color-green-100);
 
-  /* --color-error-foreground: var(--color-white);
+  --color-warning: var(--color-amber-600);
+  --color-warning-muted: var(--color-amber-100);
+
+  --color-error: var(--color-red-600);
   --color-error-muted: var(--color-red-100);
-  --color-error-surface: var(--color-red-600); */
 
-  /* --color-warning-muted: var(--color-amber-100);
-  --color-warning-surface: var(--color-amber-500);
-  --color-warning-foreground: var(--color-amber-900); */
-
-  /* --color-info: var(--color-blue-600);
-  --color-info-foreground: var(--color-white);
-  --color-info-muted: var(--color-blue-100);  */
+  --color-info: var(--color-blue-600);
+  --color-info-muted: var(--color-blue-100);
 }
