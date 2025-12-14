@@ -8,11 +8,21 @@ import "../styles/global.css";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <script is:inline src="./node_modules/preline/dist/index.js"></script>
     <meta name="generator" content={Astro.generator} />
     <title>Mentoris</title>
   </head>
-  <body class="bg-bg min-h-dvh">
-    <slot />
+  <body class="bg-bg font-raleway min-h-dvh">
+    <slot name="header" />
+    <main>
+      <slot name="main" />
+    </main>
+    <slot name="footer" />
   </body>
 </html>

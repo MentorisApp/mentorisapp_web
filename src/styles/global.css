@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 @import "preline/variants.css";
 @source "../../node_modules/preline/dist/*.js";
@@ -38,4 +39,8 @@
 
   --color-info: var(--color-blue-500);
   --color-info-muted: var(--color-blue-100);
+}
+
+@theme {
+  --font-raleway: "Raleway", sans-serif;
 }
