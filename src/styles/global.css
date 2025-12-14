@@ -11,16 +11,13 @@
 
 @theme inline {
   /* -------------------------------------------------------------------------- */
-  /*                                   Primary                                  */
+  /*                                   Colors                                   */
   /* -------------------------------------------------------------------------- */
   --color-primary: var(--color-teal-700); /* main buttons, links */
   --color-primary-hover: var(--color-teal-600); /* hover state */
   --color-primary-active: var(--color-teal-900); /* active/pressed */
 
-  /* -------------------------------------------------------------------------- */
-  /*                                  Neutrals                                  */
-  /* -------------------------------------------------------------------------- */
-  /* General neutral */
+  /* Neutrals */
   --color-bg: var(--color-gray-50); /* page background */
   --color-surface: var(--color-white); /* cards, panels */
   --color-border: var(--color-gray-200); /* borders, dividers */
@@ -29,9 +26,7 @@
   --color-text: var(--color-gray-900); /* primary text */
   --color-text-muted: var(--color-gray-700); /* secondary text */
 
-  /* -------------------------------------------------------------------------- */
-  /*                                Semantic colors                             */
-  /* -------------------------------------------------------------------------- */
+  /* Semantic */
   --color-success: var(--color-green-600);
   --color-success-muted: var(--color-green-100);
 
@@ -41,6 +36,6 @@
   --color-error: var(--color-red-600);
   --color-error-muted: var(--color-red-100);
 
-  --color-info: var(--color-blue-600);
+  --color-info: var(--color-blue-500);
   --color-info-muted: var(--color-blue-100);
 }

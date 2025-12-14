@@ -33,7 +33,7 @@ const LoginForm = () => {
 
   return (
     <IslandWrapper>
-      <div className="mx-auto flex h-full w-[60%] flex-col items-center justify-center px-8">
+      <div className="bg-bg mx-auto flex h-full w-[60%] flex-col items-center justify-center px-8">
         <form onSubmit={onSubmit} className="w-full">
           <InputText
             label="Email"
@@ -47,8 +47,8 @@ const LoginForm = () => {
             control={form.control}
             placeholder="Enter password"
           />
-          <Button severity="primary" variant="solid" type="submit">
-            {isPending ? "Loading..." : "Log in"}
+          <Button className="w-full" severity="primary" variant="solid" size="large" type="submit">
+            {isPending ? "Loading..." : "Prijava"}
           </Button>
         </form>
       </div>

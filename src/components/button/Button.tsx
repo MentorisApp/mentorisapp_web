@@ -10,20 +10,28 @@ type ButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = (props: PropsWithChildren<ButtonProps>) => {
-  const { children, className, variant = "solid", severity = "primary", to, ...restProps } = props;
+  const {
+    children,
+    className,
+    variant = "solid",
+    severity = "primary",
+    to,
+    size = "medium",
+    ...restProps
+  } = props;
 
   const base =
-    "inline-flex items-center justify-center font-medium rounded-full transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+    "inline-flex items-center hover:cursor-pointer justify-center font-medium rounded-full transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
 
   const sizes = {
     small: "px-4 py-2 text-sm",
-    medium: "px-6 py-3 text-base",
-    large: "px-8 py-4 text-lg",
+    medium: "px-6 py-2 text-base",
+    large: "px-8 py-3 text-lg",
   };
 
   const variantClasses = {
     primary: {
-      solid: "bg-primary text-white hover:bg-primary-hover active:bg-primary-active",
+      solid: "bg-primary text-lime-100 hover:bg-primary-hover active:bg-primary-active",
       ghost: "bg-transparent text-primary border border-primary hover:bg-primary/10",
     },
     secondary: {
@@ -48,12 +56,7 @@ const Button = (props: PropsWithChildren<ButtonProps>) => {
     },
   };
 
-  const merged = twMerge(
-    base,
-    sizes[props.size || "medium"],
-    variantClasses[severity]?.[variant],
-    className
-  );
+  const merged = twMerge(base, sizes[size], variantClasses[severity]?.[variant], className);
 
   // Wrap in <a> if `to` is provided, else just render <button>
   if (to) {

@@ -3,15 +3,20 @@ import { Button } from "../button/Button";
 ---
 
 <header
-  class="absolute z-50 flex w-full flex-wrap py-3 text-sm sm:flex-nowrap sm:justify-start dark:bg-neutral-800"
+  class="flex w-full flex-wrap py-3 text-sm sm:flex-nowrap sm:justify-start dark:bg-neutral-800"
 >
-  <nav class="mx-auto flex w-full max-w-340 basis-full flex-wrap items-center justify-between px-4">
+  <nav class="mx-auto flex w-full basis-full flex-wrap items-center justify-between px-4">
     <a
       class="flex-none text-xl font-semibold focus:opacity-80 focus:outline-hidden sm:order-1 dark:text-white"
-      href="/">Mentoris</a
+      href="/"
     >
+      Mentoris
+    </a>
     <div class="flex items-center gap-x-2 sm:order-3">
-      <Button to="/login" client:load severity="primary" variant="solid">Prijava</Button>
+      <Button to="/register" severity="primary" variant="solid" size="small" className="px-10"
+        >Predaj oglas</Button
+      >
+      <Button to="/login" severity="secondary" variant="solid" size="small">Prijava</Button>
     </div>
   </nav>
 </header>

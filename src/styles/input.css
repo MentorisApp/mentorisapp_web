@@ -1,9 +1,9 @@
 @layer utilities {
   .input-base {
-    @apply block w-full rounded-xl border-2 border-transparent bg-gray-100 text-sm placeholder-gray-500 focus:ring-0 focus:outline-none disabled:pointer-events-none disabled:opacity-50;
+    @apply block w-full rounded-xl border-2 border-transparent bg-gray-200 text-sm placeholder-gray-500 focus:ring-0 focus:outline-none disabled:pointer-events-none disabled:opacity-50;
   }
   .input-focus {
-    @apply focus:border-primary-hover/50;
+    @apply focus:border-primary-hover/70;
   }
   .input-error {
     @apply border-error bg-error-muted;
