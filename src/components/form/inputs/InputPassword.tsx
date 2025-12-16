@@ -8,7 +8,7 @@ import { twMerge } from "tailwind-merge";
 
 const InputPassword = <T extends FieldValues>(props: BaseInputProps<T>) => {
   const { optional, label, placeholder } = props;
-  const { error, inputId, inputProps } = useFormInput(props);
+  const { error, inputId, baseClassName, className, field } = useFormInput(props);
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => {
@@ -20,13 +20,17 @@ const InputPassword = <T extends FieldValues>(props: BaseInputProps<T>) => {
     showPassword && "text-primary"
   );
 
+  const inputClassName = twMerge(baseClassName, className);
+
   return (
     <FormInputTemplate errorMessage={error} inputId={inputId} label={label} optional={optional}>
       <div className="relative">
         <input
           type={showPassword ? "text" : "password"}
-          {...inputProps}
+          className={inputClassName}
+          id={inputId}
           placeholder={placeholder}
+          {...field}
         />
         <button
           type="button"

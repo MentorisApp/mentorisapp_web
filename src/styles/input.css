@@ -1,6 +1,6 @@
 @layer utilities {
   .input-base {
-    @apply block w-full rounded-xl border-2 border-transparent bg-gray-200 text-sm placeholder-gray-500 focus:ring-0 focus:outline-none disabled:pointer-events-none disabled:opacity-50;
+    @apply w-full rounded-xl border-2 border-transparent bg-gray-200 text-start text-sm placeholder-gray-500 focus:ring-0 focus:outline-none disabled:pointer-events-none disabled:opacity-50;
   }
   .input-focus {
     @apply focus:border-primary-hover/70;

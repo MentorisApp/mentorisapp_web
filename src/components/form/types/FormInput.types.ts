@@ -8,6 +8,7 @@ export type BaseInputProps<T extends FieldValues> = {
   placeholder?: string;
   className?: string;
   size?: InputSize;
+  hideError?: boolean;
 } & Omit<FormInputLabelTemplateProps, "inputId">;
 
 export type FormInputLabelTemplateProps = {
@@ -18,4 +19,5 @@ export type FormInputLabelTemplateProps = {
 
 export type FormInputErrorTemplateProps = {
   errorMessage: string | undefined;
+  hideError?: boolean;
 };

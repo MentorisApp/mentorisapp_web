@@ -1,23 +1,18 @@
 ---
-import { Button } from "@/components/button/Button";
-import NavigationBar from "@/components/navigation/NavigationBar.astro";
+import { HeroSearch } from "@/components/HeroSearch";
+import NavigationBar from "@/components/NavigationBar.astro";
 import AppLayout from "@/layouts/AppLayout.astro";
-import { Search } from "lucide-react";
 ---
 
 <AppLayout>
   <NavigationBar slot="header" />
   <section slot="main" class="flex h-[55dvh] justify-center">
-    <div class="flex flex-col items-center justify-center">
-      <h1 class="text-text text-6xl font-semibold">Učitelji za svaki predmet i svaku dob</h1>
-      <p class="text-text-muted/80 text-2xl leading-loose">
+    <div class="flex w-full flex-col items-center justify-center">
+      <!-- <h1 class="text-6xl font-semibold text-text">Učitelji za svaki predmet i svaku dob</h1>
+      <p class="text-2xl leading-loose text-text-muted/80">
         Privatne instrukcije iz matematike – brzo i jednostavno
-      </p>
-      <div class="bg-surface mt-10 flex h-20 w-[720px] justify-end rounded-full px-2 py-2 shadow">
-        <Button className="p-8">
-          <Search size={28} />
-        </Button>
-      </div>
+      </p> -->
+      <HeroSearch client:load />
     </div>
   </section>
 </AppLayout>

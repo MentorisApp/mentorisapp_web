@@ -9,13 +9,13 @@ import type {
 type FormInputTemplateProps = FormInputErrorTemplateProps & FormInputLabelTemplateProps;
 
 const FormInputTemplate = (props: PropsWithChildren<FormInputTemplateProps>) => {
-  const { inputId, errorMessage, optional, label, children } = props;
+  const { inputId, errorMessage, optional, label, children, hideError } = props;
 
   return (
     <div className="w-full">
       <FormInputLabelTemplate inputId={inputId} optional={optional} label={label} />
       {children}
-      <FormInputErrorTemplate errorMessage={errorMessage} />
+      {!hideError && <FormInputErrorTemplate errorMessage={errorMessage} />}
     </div>
   );
 };

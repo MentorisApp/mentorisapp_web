@@ -14,25 +14,19 @@ export const useFormInput = <T extends FieldValues>(props: BaseInputProps<T>) =>
   const uniqueId = useId();
   const inputId = `${name}-${uniqueId}`;
 
-  const finalClassName = twMerge(
-    "input-base input-md",
+  const baseClassName = twMerge(
+    "input-base",
     error ? "input-error" : "input-focus",
     size === "small" && "input-sm",
     size === "normal" && "input-md",
-    size === "large" && "input-lg",
-    className
+    size === "large" && "input-lg"
   );
-
-  const inputProps = {
-    ...field,
-    id: inputId,
-    name,
-    className: finalClassName,
-  };
 
   return {
     error: error?.message,
     inputId,
-    inputProps,
+    field,
+    baseClassName,
+    className,
   };
 };
