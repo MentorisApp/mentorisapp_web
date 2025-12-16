@@ -4,7 +4,7 @@ import type { BaseInputProps } from "@/components/form/types/FormInput.types";
 import { FormInputTemplate } from "../templates/FormInputTemplate";
 import { useFormInput } from "../hooks/useFormInput";
 import { twMerge } from "tailwind-merge";
-import { ChevronDown, ChevronUpIcon } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const SUBJECTS = [
   { id: 1, title: "Matematika" },

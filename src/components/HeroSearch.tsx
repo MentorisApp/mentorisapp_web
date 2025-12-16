@@ -10,7 +10,13 @@ const HeroSearch = () => {
 
   return (
     <div className="flex w-[400px] justify-around">
-      <DropdownSelect hideError control={form.control} name="search" placeholder="Predmet" />
+      <DropdownSelect
+        className="rounded-full"
+        hideError
+        control={form.control}
+        name="search"
+        placeholder="Predmet"
+      />
     </div>
   );
 };
