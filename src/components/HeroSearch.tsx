@@ -3,18 +3,18 @@ import { DropdownSelect } from "./form/inputs/DropdownSelect";
 
 const HeroSearch = () => {
   const form = useForm({
-    defaultValues: { search: 3 },
+    defaultValues: { input1: null, input2: null, input3: null },
   });
 
   console.log(form.watch());
 
   return (
-    <div className="flex w-[400px] justify-around">
+    <div className="flex w-[400px] flex-col justify-around">
       <DropdownSelect
         className="rounded-full"
         hideError
         control={form.control}
-        name="search"
+        name="input1"
         placeholder="Predmet"
       />
     </div>

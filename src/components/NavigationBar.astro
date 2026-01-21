@@ -1,5 +1,5 @@
 ---
-import { Button } from "./button/Button";
+import { UserMenu } from "./UserMenu";
 ---
 
 <header
@@ -12,8 +12,6 @@ import { Button } from "./button/Button";
     >
       Mentoris
     </a>
-    <div class="flex items-center gap-x-2 sm:order-3">
-      <Button to="/login" severity="secondary" variant="solid" size="small">Prijava</Button>
-    </div>
+    <UserMenu client:load />
   </nav>
 </header>

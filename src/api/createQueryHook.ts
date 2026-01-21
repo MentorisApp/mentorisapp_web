@@ -2,13 +2,14 @@ import { GET, POSTQ } from "./config/apiMethods";
 import { useQuery } from "@tanstack/react-query";
 import type { UseQueryOptions } from "@tanstack/react-query";
 import type { AxiosRequestConfig } from "axios";
+import { queryClient } from "./config/queryClient";
 
 type QueryOptions<TResponse> = Omit<UseQueryOptions<TResponse, Error>, "queryFn" | "queryKey">;
 
 type CreateQueryHookParams<TRequest, TResponse> = {
   method: "GET" | "POST";
   url: string | ((payload: TRequest) => string);
-  queryKey: (payload: TRequest) => [...(string | number)[]];
+  queryKey: ((payload: TRequest) => [...(string | number)[]]) | [...(string | number)[]];
   axiosRequestConfig?: AxiosRequestConfig<TResponse>;
   queryOptions?: QueryOptions<TResponse>;
 };
@@ -21,7 +22,8 @@ const createQueryHook = <TRequest, TResponse>({
   queryOptions: baseQueryOptions,
 }: CreateQueryHookParams<TRequest, TResponse>) => {
   return (payload: TRequest, overrideQueryOptions?: QueryOptions<TResponse>) => {
-    const cacheKey = queryKey ? queryKey(payload) : [];
+    const cacheKey = typeof queryKey === "function" ? queryKey(payload) : [];
+
     const queryFn = (() => {
       const endpointUrl = typeof url === "function" ? url(payload) : url;
 
@@ -37,16 +39,15 @@ const createQueryHook = <TRequest, TResponse>({
       }
     })();
 
-    const mergedQueryOptions = {
-      ...baseQueryOptions,
-      ...overrideQueryOptions,
-    };
-
-    return useQuery({
-      queryKey: cacheKey,
-      queryFn,
-      ...mergedQueryOptions,
-    });
+    return useQuery(
+      {
+        queryKey: cacheKey,
+        queryFn,
+        ...baseQueryOptions,
+        ...overrideQueryOptions,
+      },
+      queryClient
+    );
   };
 };
 

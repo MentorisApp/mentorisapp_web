@@ -12,9 +12,10 @@ export type LoginForm = z.infer<typeof schema>;
 export const useLogin = createMutationHook<LoginForm, any>({
   method: "POST",
   url: "auth/login",
-  mutationOptions: {
-    onSuccess: () => {
-      window.location.replace("/");
-    },
-  },
+});
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const useLogout = createMutationHook<void, any>({
+  method: "POST",
+  url: "auth/logout",
 });

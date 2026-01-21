@@ -2,16 +2,16 @@ import { useMutation } from "@tanstack/react-query";
 import type { UseMutationOptions } from "@tanstack/react-query";
 import type { AxiosRequestConfig } from "axios";
 import { DELETE, POST, PUT } from "./config/apiMethods";
+import { queryClient } from "./config/queryClient";
 
 type MutationOptions<TRequest, TResponse> = Omit<
   UseMutationOptions<TResponse, Error, TRequest>,
-  "mutationFn" | "mutationKey"
+  "mutationFn"
 >;
 
 type CreateQueryHookParams<TRequest, TResponse> = {
   method: "PUT" | "POST" | "DELETE";
   url: string | ((payload: TRequest) => string);
-  mutationKey?: [...(string | number)[]];
   axiosRequestConfig?: AxiosRequestConfig<TResponse>;
   mutationOptions?: MutationOptions<TRequest, TResponse>;
   // isFormData?: boolean;
@@ -20,7 +20,6 @@ type CreateQueryHookParams<TRequest, TResponse> = {
 const createMutationHook = <TRequest, TResponse>({
   method,
   url,
-  mutationKey,
   axiosRequestConfig,
   mutationOptions: baseMutationOptions,
   // TODO
@@ -67,11 +66,13 @@ const createMutationHook = <TRequest, TResponse>({
       ...overrideOptions,
     };
 
-    return useMutation({
-      mutationKey,
-      mutationFn,
-      ...mergedMutationOptions,
-    });
+    return useMutation(
+      {
+        mutationFn,
+        ...mergedMutationOptions,
+      },
+      queryClient
+    );
   };
 };
 
