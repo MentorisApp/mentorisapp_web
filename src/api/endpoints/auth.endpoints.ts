@@ -8,6 +8,7 @@ const schema = z.object({
 
 export type LoginForm = z.infer<typeof schema>;
 
+// TODO types
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useLogin = createMutationHook<LoginForm, any>({
   method: "POST",
