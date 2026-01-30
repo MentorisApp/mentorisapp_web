@@ -5,7 +5,6 @@ import { z } from "zod";
 import { InputPassword } from "../inputs/InputPassword";
 import { useLogin } from "@/api/endpoints/auth.endpoints";
 import { Button } from "@/components/button/Button";
-import { useTokenHandler } from "@/hooks/useTokenHandler";
 
 const schema = z.object({
   email: z.string().min(1, "This field is required.").default(""),
@@ -17,15 +16,10 @@ export type LoginForm = z.infer<typeof schema>;
 const defaultValues = schema.parse({});
 
 const LoginForm = () => {
-  const { login } = useTokenHandler();
-
   const { mutate, isPending } = useLogin({
     onSuccess: (data) => {
       console.log(data.data.accessToken);
-      if (data.data.accessToken) {
-        login(data.data.accessToken);
-        window.location.assign("/");
-      }
+      window.location.assign("/");
     },
   });
 

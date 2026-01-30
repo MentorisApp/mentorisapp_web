@@ -20,3 +20,9 @@ export const useLogout = createMutationHook<void, any>({
   method: "POST",
   url: "auth/logout",
 });
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const useEmailRegisterAccount = createMutationHook<any, any>({
+  method: "POST",
+  url: "auth/register",
+});

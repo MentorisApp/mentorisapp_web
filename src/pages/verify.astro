@@ -1,0 +1,45 @@
+---
+const token = Astro.url.searchParams.get("token");
+
+if (!token) {
+  return new Response(null, {
+    status: 302,
+    headers: { location: "/login?error=missing-token" },
+  });
+}
+
+try {
+  // Call backend to verify token
+  const res = await fetch(`http://localhost:3000/api/auth/verify-account?token=${token}`);
+
+  if (!res.ok) {
+    // Invalid token → redirect to login
+    return new Response(null, {
+      status: 302,
+      headers: { location: "/login?error=invalid-token" },
+    });
+  }
+
+  // Get all cookies returned by backend
+  const setCookieHeaders: string[] = res.headers.getSetCookie() || [];
+
+  // Build response headers
+  const headers = new Headers();
+  headers.set("location", "/"); // redirect to home
+  setCookieHeaders.forEach((cookie) => headers.append("set-cookie", cookie));
+
+  // Return 302 redirect with all backend cookies
+  return new Response(null, {
+    status: 302,
+    headers,
+  });
+} catch (e) {
+  // Something went wrong → redirect to login
+  // TODO handle better
+  console.error(e);
+  return new Response(null, {
+    status: 302,
+    headers: { location: "/login?error=server-error" },
+  });
+}
+---
