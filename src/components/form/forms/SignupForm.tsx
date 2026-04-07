@@ -9,6 +9,7 @@ import { Button } from "@/components/button/Button";
 const schema = z
   .object({
     email: z.string().min(1, "This field is required.").default(""),
+    name: z.string().min(2, "This field is required.").default(""),
     password: z.string().min(1, "This field is required.").default(""),
     repeatPassword: z.string().min(1, "This field is required.").default(""),
   })
@@ -37,6 +38,7 @@ const SignupForm = () => {
     mutate({
       email: formData.email,
       password: formData.password,
+      name: formData.name,
     });
   });
 
@@ -45,6 +47,12 @@ const SignupForm = () => {
       <InputText
         label="Email"
         name="email"
+        control={form.control}
+        placeholder="youremail@address.com"
+      />
+      <InputText
+        label="Name"
+        name="name"
         control={form.control}
         placeholder="youremail@address.com"
       />
@@ -60,7 +68,7 @@ const SignupForm = () => {
         control={form.control}
         placeholder="Repeat password"
       />
-      <Button className="w-full" severity="primary" variant="solid" size="large" type="submit">
+      <Button className="mt-6 w-full" severity="primary" variant="solid" size="large" type="submit">
         {isPending ? "Loading..." : "Prijava"}
       </Button>
     </form>

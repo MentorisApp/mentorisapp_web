@@ -21,7 +21,7 @@ const Button = (props: PropsWithChildren<ButtonProps>) => {
   } = props;
 
   const base =
-    "inline-flex items-center hover:cursor-pointer justify-center font-medium rounded-full transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+    "inline-flex items-center hover:cursor-pointer justify-center font-medium rounded-lg transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
 
   const sizes = {
     small: "px-4 py-2 text-sm",

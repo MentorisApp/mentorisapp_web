@@ -15,7 +15,7 @@ export const useFormInput = <T extends FieldValues>(props: BaseInputProps<T>) =>
   const inputId = `${name}-${uniqueId}`;
 
   const baseClassName = twMerge(
-    "w-full rounded-xl border-2 border-transparent bg-gray-200 text-start text-sm placeholder-gray-500 focus:ring-0 focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+    "w-full rounded-lg border-2 border-transparent bg-gray-200 text-start text-sm placeholder-gray-500 focus:ring-0 focus:outline-none disabled:pointer-events-none disabled:opacity-50",
     error ? "border-error bg-error-muted" : "focus:border-primary-hover/70",
     size === "small" && "px-2 py-1.5 text-sm",
     size === "normal" && "px-3 py-2.5 text-sm",
