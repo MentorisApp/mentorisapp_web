@@ -1,6 +1,11 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, PropsWithChildren } from "react";
+import type {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  CSSProperties,
+  PropsWithChildren,
+} from "react";
 import { twMerge } from "tailwind-merge";
-import { interactiveFocusClassName } from "@/ui/styles/primitives";
+import { interactiveFocusClassName } from "@/styles/primitives";
 
 type ButtonBaseProps = {
   className?: string;
@@ -51,9 +56,9 @@ const Button = (props: PropsWithChildren<ButtonProps>) => {
     },
     secondary: {
       solid:
-        "border-border bg-surface-muted text-text shadow-sm hover:border-border-strong hover:bg-surface active:bg-surface-muted",
+        "border-border bg-surface-muted text-text-muted shadow-sm hover:bg-surface hover:text-text active:bg-surface-muted",
       ghost:
-        "border-transparent bg-transparent text-text-muted hover:bg-surface-muted hover:text-text",
+        "border-transparent bg-transparent text-text-muted hover:bg-surface-muted hover:text-text-muted",
     },
     success: {
       solid:

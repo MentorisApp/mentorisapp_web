@@ -6,7 +6,7 @@ import {
   formControlBaseClassName,
   formControlErrorClassName,
   formControlSizeClassNames,
-} from "@/ui/styles/primitives";
+} from "@/styles/primitives";
 
 export const useFormInput = <T extends FieldValues>(props: BaseInputProps<T>) => {
   const { name, control, className, size = "normal" } = props;

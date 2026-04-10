@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { ChevronDown } from "lucide-react";
 import { useFormInput } from "@/hooks/useFormInput";
 import { FormInputTemplate } from "./templates/FormInputTemplate";
-import { stepIndicatorClassNames } from "@/ui/styles/primitives";
+import { stepIndicatorClassNames } from "@/styles/primitives";
 
 const SUBJECTS = [
   { id: 1, title: "Matematika" },
@@ -85,7 +85,7 @@ const DropdownSelect = <T extends FieldValues>(props: BaseInputProps<T>) => {
                   "text-text cursor-pointer rounded-md px-3 py-2.5 text-sm transition-colors",
                   subject.id === field.value
                     ? stepIndicatorClassNames.completed
-                    : "hover:bg-primary-soft hover:text-primary"
+                    : "hover:bg-surface-muted hover:text-text"
                 )}
                 onMouseDown={() => {
                   field.onChange(subject.id);

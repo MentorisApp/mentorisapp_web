@@ -5,7 +5,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { FormInputTemplate } from "./templates/FormInputTemplate";
 import { useFormInput } from "@/hooks/useFormInput";
-import { interactiveFocusClassName } from "@/ui/styles/primitives";
+import { interactiveFocusClassName } from "@/styles/primitives";
 
 const InputPassword = <T extends FieldValues>(props: BaseInputProps<T>) => {
   const { optional, label, placeholder } = props;

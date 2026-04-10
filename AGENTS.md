@@ -14,15 +14,11 @@ This repo uses a simple, breathable design system. Keep the interface quiet and 
 
 - Buttons and inputs should reuse the shared patterns in `src/ui/styles/primitives.ts`.
 - Cards should default to `surface`, soft border, `shadow-md`, and generous radius.
-- Pills and badges should stay compact and quiet. Prefer `primary-soft`, `accent-soft`, or `surface-muted` backgrounds.
 - Multi-step flows should use teal for the current step, teal-soft for completed steps, and muted grey for upcoming steps.
 
 ## Composition Guidance
 
 - Keep spacing breathable. Do not compress forms or card layouts unless density is explicitly requested.
-- Prefer one strong action per section. Secondary actions should recede into neutral surfaces or ghost treatments.
-- Typography emphasis should come from weight, spacing, and occasional teal emphasis, not from many colors.
-- Avoid decorative gradients, glassmorphism, neon accents, or visually loud shadows unless explicitly requested.
 
 ## When Adding New UI
 
