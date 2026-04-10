@@ -1,5 +1,5 @@
 import { useLogout } from "@/api/endpoints/auth.endpoints";
-import { Button } from "./button/Button";
+import { Button } from "../ui/Button";
 
 interface UserMenuProps {
   user: User | null;

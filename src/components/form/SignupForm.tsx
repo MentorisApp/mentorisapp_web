@@ -1,10 +1,11 @@
-import { InputText } from "../inputs/InputText";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { InputPassword } from "../inputs/InputPassword";
 import { useEmailRegisterAccount } from "@/api/endpoints/auth.endpoints";
-import { Button } from "@/components/button/Button";
+import { Button } from "@/ui/Button";
+import { VerticalStack } from "@/ui/VerticalStack";
+import { InputText } from "@/ui/inputs/InputText";
+import { InputPassword } from "@/ui/inputs/InputPassword";
 
 const schema = z
   .object({
@@ -43,34 +44,42 @@ const SignupForm = () => {
   });
 
   return (
-    <form onSubmit={onSubmit} className="bg-surface flex w-[500px] flex-col rounded-xl p-6">
-      <InputText
-        label="Email"
-        name="email"
-        control={form.control}
-        placeholder="youremail@address.com"
-      />
-      <InputText
-        label="Name"
-        name="name"
-        control={form.control}
-        placeholder="youremail@address.com"
-      />
-      <InputPassword
-        label="Password"
-        name="password"
-        control={form.control}
-        placeholder="Enter password"
-      />
-      <InputPassword
-        label="Repeat password"
-        name="repeatPassword"
-        control={form.control}
-        placeholder="Repeat password"
-      />
-      <Button className="mt-6 w-full" severity="primary" variant="solid" size="large" type="submit">
-        {isPending ? "Loading..." : "Prijava"}
-      </Button>
+    <form onSubmit={onSubmit}>
+      <VerticalStack>
+        <InputText
+          label="Email"
+          name="email"
+          control={form.control}
+          placeholder="youremail@address.com"
+        />
+        <InputText
+          label="Name"
+          name="name"
+          control={form.control}
+          placeholder="youremail@address.com"
+        />
+        <InputPassword
+          label="Password"
+          name="password"
+          control={form.control}
+          placeholder="Enter password"
+        />
+        <InputPassword
+          label="Repeat password"
+          name="repeatPassword"
+          control={form.control}
+          placeholder="Repeat password"
+        />
+        <Button
+          className="mt-6 w-full"
+          severity="primary"
+          variant="solid"
+          size="large"
+          type="submit"
+        >
+          {isPending ? "Loading..." : "Prijava"}
+        </Button>
+      </VerticalStack>
     </form>
   );
 };

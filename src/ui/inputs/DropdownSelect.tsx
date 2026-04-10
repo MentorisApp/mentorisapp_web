@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { type FieldValues } from "react-hook-form";
-import type { BaseInputProps } from "@/components/form/types/FormInput.types";
-import { FormInputTemplate } from "../templates/FormInputTemplate";
-import { useFormInput } from "../hooks/useFormInput";
+import type { BaseInputProps } from "@/ui/inputs/types/FormInput.types";
 import { twMerge } from "tailwind-merge";
 import { ChevronDown } from "lucide-react";
+import { useFormInput } from "@/hooks/useFormInput";
+import { FormInputTemplate } from "./templates/FormInputTemplate";
+import { stepIndicatorClassNames } from "@/ui/styles/primitives";
 
 const SUBJECTS = [
   { id: 1, title: "Matematika" },
@@ -57,25 +58,35 @@ const DropdownSelect = <T extends FieldValues>(props: BaseInputProps<T>) => {
             className
           )}
         >
-          <span className={field.value ? "" : "text-neutral-400"}>
+          <span className={field.value ? "text-text" : "text-text-soft"}>
             {selected?.title || placeholder}
           </span>
 
-          <ChevronDown className={`h-4 w-4 transition ${isOpen ? "rotate-180" : ""}`} />
+          <ChevronDown
+            className={twMerge(
+              "text-text-soft h-4 w-4 transition-transform duration-200",
+              isOpen && "rotate-180"
+            )}
+          />
         </button>
 
         {/* Dropdown */}
         {isOpen && (
           <ul
             role="listbox"
-            className="border-border bg-surface absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded-xl border shadow-sm"
+            className="border-border bg-surface absolute z-20 mt-2 max-h-60 w-full overflow-auto rounded-lg border p-1 shadow-md"
           >
             {SUBJECTS.map((subject) => (
               <li
                 key={subject.id}
                 role="option"
                 aria-selected={subject.id === field.value}
-                className="hover:bg-primary/10 cursor-pointer px-3 py-2 text-sm"
+                className={twMerge(
+                  "text-text cursor-pointer rounded-md px-3 py-2.5 text-sm transition-colors",
+                  subject.id === field.value
+                    ? stepIndicatorClassNames.completed
+                    : "hover:bg-primary-soft hover:text-primary"
+                )}
                 onMouseDown={() => {
                   field.onChange(subject.id);
                   setIsOpen(false);

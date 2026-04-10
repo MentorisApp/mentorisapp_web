@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { DropdownSelect } from "./form/inputs/DropdownSelect";
+import { DropdownSelect } from "@/ui/inputs/DropdownSelect";
 
 const HeroSearch = () => {
   const form = useForm({

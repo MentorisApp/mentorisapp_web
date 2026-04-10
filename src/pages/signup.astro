@@ -1,6 +1,7 @@
 ---
-import { SignupForm } from "@/components/form/forms/SignupForm";
-import AppLayout from "@/layout/AppLayout.astro";
+import { SignupForm } from "@/components/form/SignupForm";
+import AppLayout from "@/components/layout/AppLayout.astro";
+import AuthLayout from "@/components/layout/AuthLayout.astro";
 
 const refreshToken = Astro.cookies.get("refreshToken");
 
@@ -10,9 +11,7 @@ if (refreshToken) {
 ---
 
 <AppLayout>
-  <div slot="main">
-    <div class="flex h-lvh w-full items-center justify-center">
-      <SignupForm client:load />
-    </div>
-  </div>
+  <AuthLayout slot="main">
+    <SignupForm client:load />
+  </AuthLayout>
 </AppLayout>

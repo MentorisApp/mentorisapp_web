@@ -1,10 +1,11 @@
-import { InputText } from "../inputs/InputText";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { InputPassword } from "../inputs/InputPassword";
 import { useLogin } from "@/api/endpoints/auth.endpoints";
-import { Button } from "@/components/button/Button";
+import { Button } from "@/ui/Button";
+import { VerticalStack } from "@/ui/VerticalStack";
+import { InputText } from "@/ui/inputs/InputText";
+import { InputPassword } from "@/ui/inputs/InputPassword";
 
 const schema = z.object({
   email: z.string().min(1, "This field is required.").default(""),
@@ -17,6 +18,9 @@ const defaultValues = schema.parse({});
 
 const LoginForm = () => {
   const { mutate, isPending } = useLogin({
+    onError: (data) => {
+      console.log(data.message);
+    },
     onSuccess: (data) => {
       console.log(data.data.accessToken);
       window.location.assign("/");
@@ -36,8 +40,8 @@ const LoginForm = () => {
   });
 
   return (
-    <div className="bg-bg mx-auto flex h-full w-[60%] flex-col items-center justify-center px-8">
-      <form onSubmit={onSubmit} className="w-full">
+    <form onSubmit={onSubmit}>
+      <VerticalStack>
         <InputText
           label="Email"
           name="email"
@@ -53,8 +57,8 @@ const LoginForm = () => {
         <Button className="w-full" severity="primary" variant="solid" size="large" type="submit">
           {isPending ? "Loading..." : "Prijava"}
         </Button>
-      </form>
-    </div>
+      </VerticalStack>
+    </form>
   );
 };
 

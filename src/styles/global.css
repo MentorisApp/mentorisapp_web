@@ -3,42 +3,51 @@
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 
-@import "preline/variants.css";
-@source "../../node_modules/preline/dist/*.js";
-
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  /* -------------------------------------------------------------------------- */
-  /*                                   Colors                                   */
-  /* -------------------------------------------------------------------------- */
-  --color-primary: var(--color-teal-700); /* main buttons, links */
-  --color-primary-hover: var(--color-teal-600); /* hover state */
-  --color-primary-active: var(--color-teal-900); /* active/pressed */
+  --color-bg: var(--color-stone-50);
+  --color-surface: var(--color-white);
+  --color-surface-muted: var(--color-stone-100);
+  --color-surface-accent: var(--color-amber-50);
 
-  /* Neutrals */
-  --color-bg: var(--color-gray-50); /* page background */
-  --color-surface: var(--color-white); /* cards, panels */
-  --color-border: var(--color-gray-200); /* borders, dividers */
+  --color-border: var(--color-stone-200);
+  --color-border-strong: var(--color-stone-300);
 
-  /* Text */
-  --color-text: var(--color-gray-900); /* primary text */
-  --color-text-muted: var(--color-gray-700); /* secondary text */
+  --color-text: var(--color-stone-900);
+  --color-text-muted: var(--color-stone-700);
+  --color-text-soft: var(--color-stone-500);
 
-  /* Semantic */
-  --color-success: var(--color-green-600);
-  --color-success-muted: var(--color-green-100);
+  --color-primary: var(--color-teal-700);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-800);
+  --color-primary-soft: var(--color-teal-50);
 
+  --color-accent: var(--color-amber-700);
+  --color-accent-soft: var(--color-amber-100);
+
+  --color-success: var(--color-emerald-600);
   --color-warning: var(--color-amber-600);
-  --color-warning-muted: var(--color-amber-100);
-
-  --color-error: var(--color-red-600);
-  --color-error-muted: var(--color-red-100);
-
-  --color-info: var(--color-blue-500);
-  --color-info-muted: var(--color-blue-100);
+  --color-error: var(--color-rose-600);
+  --color-info: var(--color-sky-600);
 }
 
 @theme {
   --font-raleway: "Raleway", sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-raleway);
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-primary) 18%, white);
+    color: var(--color-text);
+  }
 }
