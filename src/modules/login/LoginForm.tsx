@@ -46,7 +46,13 @@ const LoginForm = () => {
           control={form.control}
           placeholder="Enter password"
         />
-        <Button className="w-full" severity="primary" variant="solid" size="large" type="submit">
+        <Button
+          className="mt-6 w-full"
+          severity="primary"
+          variant="solid"
+          size="large"
+          type="submit"
+        >
           {isPending ? "Loading..." : "Prijava"}
         </Button>
       </VerticalStack>

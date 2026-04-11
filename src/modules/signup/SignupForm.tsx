@@ -7,17 +7,16 @@ import { VerticalStack } from "@/ui/VerticalStack";
 import { InputText } from "@/ui/inputs/InputText";
 import { InputPassword } from "@/ui/inputs/InputPassword";
 
-const schema = z
-  .object({
-    email: z.string().min(1, "This field is required.").default(""),
-    name: z.string().min(2, "This field is required.").default(""),
-    password: z.string().min(1, "This field is required.").default(""),
-    repeatPassword: z.string().min(1, "This field is required.").default(""),
-  })
-  .refine((data) => data.password === data.repeatPassword, {
-    message: "Passwords must match",
-    path: ["repeatPassword"],
-  });
+const schema = z.object({
+  email: z.string().min(1, "This field is required.").default(""),
+  name: z.string().min(2, "This field is required.").default(""),
+  password: z.string().min(1, "This field is required.").default(""),
+  // repeatPassword: z.string().min(1, "This field is required.").default(""),
+});
+// .refine((data) => data.password === data.repeatPassword, {
+//   message: "Passwords must match",
+//   path: ["repeatPassword"],
+// });
 
 export type SignupForm = z.infer<typeof schema>;
 
@@ -64,12 +63,6 @@ const SignupForm = () => {
           control={form.control}
           placeholder="Enter password"
         />
-        <InputPassword
-          label="Repeat password"
-          name="repeatPassword"
-          control={form.control}
-          placeholder="Repeat password"
-        />
         <Button
           className="mt-6 w-full"
           severity="primary"
@@ -77,7 +70,7 @@ const SignupForm = () => {
           size="large"
           type="submit"
         >
-          {isPending ? "Loading..." : "Prijava"}
+          {isPending ? "Loading..." : "Kreiraj"}
         </Button>
       </VerticalStack>
     </form>

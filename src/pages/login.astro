@@ -1,7 +1,9 @@
 ---
 import AppLayout from "@/components/layout/AppLayout.astro";
-import AuthLayout from "@/components/layout/AuthLayout.astro";
+import { OAuthLogin } from "@/components/OAuthLogin";
 import { LoginForm } from "@/modules/login/LoginForm";
+import { Card } from "@/ui/Card";
+import { Divider } from "@/ui/Divider";
 
 const refreshToken = Astro.cookies.get("refreshToken");
 
@@ -11,7 +13,13 @@ if (refreshToken) {
 ---
 
 <AppLayout>
-  <AuthLayout slot="main">
-    <LoginForm client:load />
-  </AuthLayout>
+  <div slot="main" class="grid min-h-lvh w-full place-items-center">
+    <Card size="lg" className="min-w-[540px]">
+      <h2 class="mb-7 text-center text-3xl font-medium">Prijavi se</h2>
+
+      <LoginForm client:load />
+      <Divider label="ili nastavi s" />
+      <OAuthLogin />
+    </Card>
+  </div>
 </AppLayout>

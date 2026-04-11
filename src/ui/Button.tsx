@@ -1,11 +1,6 @@
-import type {
-  AnchorHTMLAttributes,
-  ButtonHTMLAttributes,
-  CSSProperties,
-  PropsWithChildren,
-} from "react";
+import { inputFocusClassName } from "@/styles/primitives/input.primitive";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
-import { interactiveFocusClassName } from "@/styles/primitives";
 
 type ButtonBaseProps = {
   className?: string;
@@ -39,7 +34,7 @@ const Button = (props: PropsWithChildren<ButtonProps>) => {
 
   const base = twMerge(
     "inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md border font-medium transition-colors duration-200 disabled:pointer-events-none disabled:opacity-60",
-    interactiveFocusClassName
+    inputFocusClassName
   );
 
   const sizes = {

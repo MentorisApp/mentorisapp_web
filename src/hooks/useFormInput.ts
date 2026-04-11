@@ -3,10 +3,10 @@ import { useId } from "react";
 import { twMerge } from "tailwind-merge";
 import type { BaseInputProps } from "@/ui/inputs/types/FormInput.types";
 import {
-  formControlBaseClassName,
-  formControlErrorClassName,
-  formControlSizeClassNames,
-} from "@/styles/primitives";
+  inputBaseClassName,
+  inputErrorClassName,
+  inputSizeClassNames,
+} from "@/styles/primitives/input.primitive";
 
 export const useFormInput = <T extends FieldValues>(props: BaseInputProps<T>) => {
   const { name, control, className, size = "normal" } = props;
@@ -20,9 +20,9 @@ export const useFormInput = <T extends FieldValues>(props: BaseInputProps<T>) =>
   const inputId = `${name}-${uniqueId}`;
 
   const baseClassName = twMerge(
-    formControlBaseClassName,
-    error && formControlErrorClassName,
-    formControlSizeClassNames[size]
+    inputBaseClassName,
+    error && inputErrorClassName,
+    inputSizeClassNames[size]
   );
 
   return {

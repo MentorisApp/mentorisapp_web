@@ -5,7 +5,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { FormInputTemplate } from "./templates/FormInputTemplate";
 import { useFormInput } from "@/hooks/useFormInput";
-import { interactiveFocusClassName } from "@/styles/primitives";
+import { inputFocusClassName } from "@/styles/primitives/input.primitive";
 
 const InputPassword = <T extends FieldValues>(props: BaseInputProps<T>) => {
   const { optional, label, placeholder } = props;
@@ -18,7 +18,7 @@ const InputPassword = <T extends FieldValues>(props: BaseInputProps<T>) => {
 
   const buttonClassName = twMerge(
     "absolute inset-y-0 end-0 z-10 flex cursor-pointer items-center rounded-md px-3 text-text-soft transition-colors hover:text-text-muted",
-    interactiveFocusClassName,
+    inputFocusClassName,
     showPassword && "text-text-muted"
   );
 
