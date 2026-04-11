@@ -6,8 +6,6 @@ const HeroSearch = () => {
     defaultValues: { input1: null, input2: null, input3: null },
   });
 
-  console.log(form.watch());
-
   return (
     <div className="flex w-[400px] flex-col justify-around">
       <DropdownSelect

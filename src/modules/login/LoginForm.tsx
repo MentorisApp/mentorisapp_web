@@ -1,20 +1,11 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { useLogin } from "@/api/endpoints/auth.endpoints";
 import { Button } from "@/ui/Button";
 import { VerticalStack } from "@/ui/VerticalStack";
 import { InputText } from "@/ui/inputs/InputText";
 import { InputPassword } from "@/ui/inputs/InputPassword";
-
-const schema = z.object({
-  email: z.string().min(1, "This field is required.").default(""),
-  password: z.string().min(1, "This field is required.").default(""),
-});
-
-export type LoginForm = z.infer<typeof schema>;
-
-const defaultValues = schema.parse({});
+import { defaultValues, schema } from "./loginForm.schema";
 
 const LoginForm = () => {
   const { mutate, isPending } = useLogin({
@@ -28,7 +19,7 @@ const LoginForm = () => {
   });
 
   const form = useForm({
-    defaultValues,
+    defaultValues: defaultValues,
     resolver: zodResolver(schema),
   });
 
@@ -42,6 +33,7 @@ const LoginForm = () => {
   return (
     <form onSubmit={onSubmit}>
       <VerticalStack>
+        {/* TODO form config function for inputs (name, label, schema, default values...) */}
         <InputText
           label="Email"
           name="email"

@@ -1,8 +1,8 @@
-import { GET, POSTQ } from "./config/apiMethods";
+import { GET, POSTQ } from "../config/apiMethods";
 import { useQuery } from "@tanstack/react-query";
 import type { UseQueryOptions } from "@tanstack/react-query";
 import type { AxiosRequestConfig } from "axios";
-import { queryClient } from "./config/queryClient";
+import { queryClient } from "../config/queryClient";
 
 type QueryOptions<TResponse> = Omit<UseQueryOptions<TResponse, Error>, "queryFn" | "queryKey">;
 

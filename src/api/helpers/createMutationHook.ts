@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
 import type { UseMutationOptions } from "@tanstack/react-query";
 import type { AxiosRequestConfig } from "axios";
-import { DELETE, POST, PUT } from "./config/apiMethods";
-import { queryClient } from "./config/queryClient";
+import { DELETE, POST, PUT } from "../config/apiMethods";
+import { queryClient } from "../config/queryClient";
 
 type MutationOptions<TRequest, TResponse> = Omit<
   UseMutationOptions<TResponse, Error, TRequest>,

@@ -1,5 +1,6 @@
 ---
 import "../../styles/global.css";
+import { Toaster } from "sonner";
 ---
 
 <!doctype html>
@@ -19,6 +20,7 @@ import "../../styles/global.css";
     <title>Mentoris</title>
   </head>
   <body class="min-h-dvh">
+    <Toaster client:load richColors position="top-center" closeButton />
     <slot name="header" />
     <main>
       <slot name="main" />

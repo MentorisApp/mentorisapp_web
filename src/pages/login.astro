@@ -1,7 +1,7 @@
 ---
-import { LoginForm } from "@/components/form/LoginForm";
 import AppLayout from "@/components/layout/AppLayout.astro";
 import AuthLayout from "@/components/layout/AuthLayout.astro";
+import { LoginForm } from "@/modules/login/LoginForm";
 
 const refreshToken = Astro.cookies.get("refreshToken");
 

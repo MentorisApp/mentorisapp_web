@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { createMutationHook } from "../createMutationHook.ts";
+import { createMutationHook } from "../helpers/createMutationHook";
 
 const schema = z.object({
   email: z.string().min(1, "This field is required.").default(""),
