@@ -1,8 +1,14 @@
 ---
 import AppLayout from "@/components/layout/AppLayout.astro";
-import NavigationBar from "@/components/NavigationBar.astro";
+import { WelcomeForm } from "@/modules/welcome/WelcomeForm";
+import { Card } from "@/ui/Card";
+import { Centered } from "@/ui/Centered";
 ---
 
 <AppLayout>
-  <NavigationBar slot="header" />
+  <Centered slot="main">
+    <Card size="lg" className="w-[640px]">
+      <WelcomeForm client:load />
+    </Card>
+  </Centered>
 </AppLayout>
