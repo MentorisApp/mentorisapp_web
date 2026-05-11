@@ -13,7 +13,13 @@ const InputText = <T extends FieldValues>(props: BaseInputProps<T>) => {
 
   return (
     <FormInputTemplate errorMessage={error} inputId={inputId} label={label} optional={optional}>
-      <input {...field} id={inputId} className={inputClassName} placeholder={placeholder} />
+      <input
+        type="email"
+        {...field}
+        id={inputId}
+        className={inputClassName}
+        placeholder={placeholder}
+      />
     </FormInputTemplate>
   );
 };

@@ -8,15 +8,10 @@ import { InputText } from "@/ui/inputs/InputText";
 import { InputPassword } from "@/ui/inputs/InputPassword";
 
 const schema = z.object({
-  email: z.string().min(1, "This field is required.").default(""),
-  name: z.string().min(2, "This field is required.").default(""),
-  password: z.string().min(1, "This field is required.").default(""),
-  // repeatPassword: z.string().min(1, "This field is required.").default(""),
+  email: z.string().min(1, "Adresa e-pošte je obavezno polje").default(""),
+  name: z.string().min(2, "Osobno ime je obavezno polje").default(""),
+  password: z.string().min(1, "Lozinka je obavezno polje").default(""),
 });
-// .refine((data) => data.password === data.repeatPassword, {
-//   message: "Passwords must match",
-//   path: ["repeatPassword"],
-// });
 
 export type SignupForm = z.infer<typeof schema>;
 
@@ -46,22 +41,17 @@ const SignupForm = () => {
     <form onSubmit={onSubmit}>
       <VerticalStack>
         <InputText
-          label="Email"
+          label="Adresa e-pošte"
           name="email"
           control={form.control}
-          placeholder="youremail@address.com"
+          placeholder="email@adresa.com"
         />
-        <InputText
-          label="Name"
-          name="name"
-          control={form.control}
-          placeholder="youremail@address.com"
-        />
+        <InputText label="Osobno ime" name="name" control={form.control} placeholder="Unesite" />
         <InputPassword
-          label="Password"
+          label="Lozinka"
           name="password"
           control={form.control}
-          placeholder="Enter password"
+          placeholder="Unesite lozinku"
         />
         <Button
           className="mt-6 w-full"
@@ -70,6 +60,7 @@ const SignupForm = () => {
           size="large"
           type="submit"
         >
+          {/* TODO loading state */}
           {isPending ? "Loading..." : "Kreiraj"}
         </Button>
       </VerticalStack>

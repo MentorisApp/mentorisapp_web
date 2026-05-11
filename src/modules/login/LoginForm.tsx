@@ -35,13 +35,13 @@ const LoginForm = () => {
       <VerticalStack>
         {/* TODO form config function for inputs (name, label, schema, default values...) */}
         <InputText
-          label="Email"
+          label="Adresa e-pošte"
           name="email"
           control={form.control}
-          placeholder="youremail@address.com"
+          placeholder="email@adresa.com"
         />
         <InputPassword
-          label="Password"
+          label="Lozinka"
           name="password"
           control={form.control}
           placeholder="Enter password"

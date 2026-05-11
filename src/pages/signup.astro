@@ -4,12 +4,6 @@ import { OAuthLogin } from "@/components/OAuthLogin";
 import { SignupForm } from "@/modules/signup/SignupForm";
 import { Card } from "@/ui/Card";
 import { Divider } from "@/ui/Divider";
-
-const refreshToken = Astro.cookies.get("refreshToken");
-
-if (refreshToken) {
-  return Astro.redirect("/");
-}
 ---
 
 <AppLayout>
